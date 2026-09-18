@@ -205,7 +205,9 @@ st.subheader("📊 관객수 상위 5편")
 top5 = df.sort_values("관객수", ascending=False).head(5)
 chart_data = top5.set_index("영화명")[["관객수"]]
 
-st.bar_chart(chart_data, height=400)
+# horizontal=True로 가로 막대그래프를 그리면 영화 제목이 왼쪽에
+# 가로 방향 그대로 표시되어 글자가 세로로 눕지 않습니다.
+st.bar_chart(chart_data, horizontal=True, height=400)
 
 st.divider()
 
